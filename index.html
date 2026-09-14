@@ -541,6 +541,13 @@
         </div>
         <div class="arrow-hint">→</div>
       </div>
+      <div class="mode-card" data-mode="gourmet">
+        <div class="label-group">
+          <div class="label">Gourmet / Delikatessen</div>
+          <div class="desc">Einkaufspreise für Feinkost- &amp; Gourmet-Partner</div>
+        </div>
+        <div class="arrow-hint">→</div>
+      </div>
       <div class="mode-card" data-mode="gastro">
         <div class="label-group">
           <div class="label">Gastro</div>
@@ -654,69 +661,89 @@
 
 <script>
 const DATA = [
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Schwarz", sub:"Tuber aestivum", menge:"250 g", gebinde:"—", kosten:7.80, wv:27.75, wvM:255.8, gastro:34.65, gastroM:344.2, retail:67.85, retailM:769.9},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Weiss, Box", sub:"Tuber magnatum pico", menge:"250 g", gebinde:"—", kosten:21.80, wv:52.15, wvM:139.2, gastro:65.15, gastroM:198.9, retail:82.85, retailM:280.0},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter 100% Schweizer Trüffeln", sub:"Tuber aestivum", menge:"250 g", gebinde:"—", kosten:7.80, wv:28.15, wvM:260.9, gastro:35.15, gastroM:350.6, retail:54.15, retailM:594.2},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Périgord", sub:"Tuber melanosporum", menge:"250 g", gebinde:"—", kosten:16.55, wv:41.50, wvM:150.8, gastro:51.85, gastroM:213.3, retail:74.85, retailM:352.3},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Morchel-Butter Sommertrüffel", sub:"2. Variante", menge:"250 g", gebinde:"—", kosten:9.16, wv:27.10, wvM:195.9, gastro:33.85, gastroM:269.5, retail:67.85, retailM:640.7},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Steinpilz-Trüffelbutter", sub:"", menge:"250 g", gebinde:"—", kosten:7.55, wv:27.10, wvM:258.9, gastro:33.85, gastroM:348.3, retail:67.85, retailM:798.7},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Weiss, Glas", sub:"Tuber magnatum pico", menge:"60 g", gebinde:"—", kosten:5.50, wv:16.70, wvM:203.6, gastro:20.85, gastroM:279.1, retail:29.85, retailM:442.7},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Schwarz, Glas", sub:"Tuber aestivum", menge:"60 g", gebinde:"—", kosten:2.14, wv:12.15, wvM:467.8, gastro:15.15, gastroM:607.9, retail:28.15, retailM:1215.4},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter 100% Schweizer Trüffeln", sub:"", menge:"60 g", gebinde:"—", kosten:2.14, wv:12.55, wvM:486.4, gastro:15.65, gastroM:631.3, retail:22.30, retailM:942.1},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Périgord", sub:"Tuber melanosporum", menge:"60 g", gebinde:"—", kosten:4.24, wv:13.50, wvM:218.4, gastro:16.85, gastroM:297.4, retail:29.85, retailM:604.0},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Morchel-Butter Sommertrüffel", sub:"Aestivo", menge:"60 g", gebinde:"—", kosten:2.47, wv:10.65, wvM:331.2, gastro:13.30, gastroM:438.5, retail:26.30, retailM:964.8},
-{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Steinpilz-Butter mit Trüffel", sub:"", menge:"60 g", gebinde:"—", kosten:2.08, wv:10.65, wvM:412.0, gastro:13.30, gastroM:539.4, retail:26.30, retailM:1164.4},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Schwarz", sub:"Tuber aestivum", menge:"250 g", gebinde:"—", kosten:7.80, wv:27.75, wvM:255.8, gastro:34.65, gastroM:344.2, retail:67.85, retailM:769.9, gourmet:27.75, gourmetM:255.8},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Weiss, Box", sub:"Tuber magnatum pico", menge:"250 g", gebinde:"—", kosten:21.80, wv:52.15, wvM:139.2, gastro:65.15, gastroM:198.9, retail:82.85, retailM:280.0, gourmet:52.15, gourmetM:139.2},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter 100% Schweizer Trüffeln", sub:"Tuber aestivum", menge:"250 g", gebinde:"—", kosten:7.80, wv:28.15, wvM:260.9, gastro:35.15, gastroM:350.6, retail:54.15, retailM:594.2, gourmet:28.15, gourmetM:260.9},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Périgord", sub:"Tuber melanosporum", menge:"250 g", gebinde:"—", kosten:16.55, wv:41.50, wvM:150.8, gastro:51.85, gastroM:213.3, retail:74.85, retailM:352.3, gourmet:41.5, gourmetM:150.8},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Morchel-Butter Sommertrüffel", sub:"2. Variante", menge:"250 g", gebinde:"—", kosten:9.16, wv:27.10, wvM:195.9, gastro:33.85, gastroM:269.5, retail:67.85, retailM:640.7, gourmet:27.1, gourmetM:195.9},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Steinpilz-Trüffelbutter", sub:"", menge:"250 g", gebinde:"—", kosten:7.55, wv:27.10, wvM:258.9, gastro:33.85, gastroM:348.3, retail:67.85, retailM:798.7, gourmet:27.1, gourmetM:258.9},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Weiss, Glas", sub:"Tuber magnatum pico", menge:"60 g", gebinde:"—", kosten:5.50, wv:16.70, wvM:203.6, gastro:20.85, gastroM:279.1, retail:29.85, retailM:442.7, gourmet:16.7, gourmetM:203.6},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Schwarz, Glas", sub:"Tuber aestivum", menge:"60 g", gebinde:"—", kosten:2.14, wv:12.15, wvM:467.8, gastro:15.15, gastroM:607.9, retail:28.15, retailM:1215.4, gourmet:12.15, gourmetM:467.8},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter 100% Schweizer Trüffeln", sub:"", menge:"60 g", gebinde:"—", kosten:2.14, wv:12.55, wvM:486.4, gastro:15.65, gastroM:631.3, retail:22.30, retailM:942.1, gourmet:12.55, gourmetM:486.4},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Trüffel-Butter Périgord", sub:"Tuber melanosporum", menge:"60 g", gebinde:"—", kosten:4.24, wv:13.50, wvM:218.4, gastro:16.85, gastroM:297.4, retail:29.85, retailM:604.0, gourmet:13.5, gourmetM:218.4},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Morchel-Butter Sommertrüffel", sub:"Aestivo", menge:"60 g", gebinde:"—", kosten:2.47, wv:10.65, wvM:331.2, gastro:13.30, gastroM:438.5, retail:26.30, retailM:964.8, gourmet:10.65, gourmetM:331.2},
+{cat:"Trüffelbutter-Linie (Eigenproduktion)", art:"—", name:"Steinpilz-Butter mit Trüffel", sub:"", menge:"60 g", gebinde:"—", kosten:2.08, wv:10.65, wvM:412.0, gastro:13.30, gastroM:539.4, retail:26.30, retailM:1164.4, gourmet:10.65, gourmetM:412.0},
 
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"344441", name:"Natives Olivenöl extra mit weissem Trüffelgeschmack", sub:"", menge:"65 ml", gebinde:"12 od. 30", kosten:2.27, wv:4.05, wvM:78.4, gastro:4.40, gastroM:93.8, retail:7.70, retailM:239.2},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"FLAM001", name:"Olio Flaminio aromatizzato al limone", sub:"", menge:"250 ml", gebinde:"—", kosten:4.90, wv:10.65, wvM:117.3, gastro:11.30, gastroM:130.6, retail:19.80, retailM:304.1},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"339001", name:"Natives Olivenöl extra mit weissem Trüffelgeschmack", sub:"", menge:"100 ml", gebinde:"6 od. 16", kosten:3.31, wv:5.9, wvM:78.2, gastro:6.50, gastroM:96.4, retail:11.40, retailM:244.4},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"339101", name:"Natives Olivenöl extra mit weissem Trüffelgeschmack (Spray)", sub:"", menge:"100 ml", gebinde:"6 od. 16", kosten:3.31, wv:5.9, wvM:78.2, gastro:6.50, gastroM:96.4, retail:11.40, retailM:244.4},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"338001", name:"Natives Olivenöl extra mit weissem Trüffelgeschmack", sub:"", menge:"250 ml", gebinde:"6 od. 16", kosten:3.96, wv:10.05, wvM:153.8, gastro:12.55, gastroM:216.9, retail:22.00, retailM:455.6},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"344442", name:"Natives Olivenöl extra mit schwarzem Trüffelgeschmack", sub:"", menge:"65 ml", gebinde:"12 od. 30", kosten:2.27, wv:4.05, wvM:78.4, gastro:4.40, gastroM:93.8, retail:7.70, retailM:239.2},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"339002", name:"Natives Olivenöl extra mit schwarzem Trüffelgeschmack", sub:"", menge:"100 ml", gebinde:"6 od. 16", kosten:3.56, wv:6.35, wvM:78.4, gastro:6.95, gastroM:95.2, retail:12.20, retailM:242.7},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"338002", name:"Natives Olivenöl extra mit schwarzem Trüffelgeschmack", sub:"", menge:"250 ml", gebinde:"6 od. 16", kosten:3.96, wv:10.05, wvM:153.8, gastro:12.55, gastroM:216.9, retail:22.00, retailM:455.6},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"408022", name:"Creme mit Aceto Balsamico di Modena g.g.A.", sub:"weisser Trüffelgeschmack", menge:"250 ml", gebinde:"6", kosten:3.50, wv:6.2, wvM:77.1, gastro:5.95, gastroM:70.0, retail:10.45, retailM:198.6},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"406020", name:"Salz mit Trüffel", sub:"", menge:"50 g", gebinde:"6", kosten:1.91, wv:3.4, wvM:78.0, gastro:3.25, gastroM:70.2, retail:5.70, retailM:198.4},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"406040", name:"Sizilianisches Meersalz mit Trüffel", sub:"mit Mühle", menge:"100 g", gebinde:"20", kosten:3.12, wv:5.55, wvM:77.9, gastro:5.35, gastroM:71.5, retail:9.40, retailM:201.3},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"406030", name:"Himalaya-Rosasalz mit Trüffel", sub:"mit Mühle", menge:"100 g", gebinde:"20", kosten:3.31, wv:5.9, wvM:78.2, gastro:5.65, gastroM:70.7, retail:9.90, retailM:199.1},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"346111", name:"Trüffelpulver", sub:"", menge:"50 g", gebinde:"20", kosten:3.70, wv:6.6, wvM:78.4, gastro:6.30, gastroM:70.3, retail:11.05, retailM:198.6},
-{cat:"Acqualagna — Öle, Salze & Gewürze", art:"346110", name:"Trüffel- und Steinpilzpulver", sub:"", menge:"50 g", gebinde:"20", kosten:3.70, wv:6.6, wvM:78.4, gastro:6.30, gastroM:70.3, retail:11.05, retailM:198.6},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"344441", name:"Natives Olivenöl extra mit weissem Trüffelgeschmack", sub:"", menge:"65 ml", gebinde:"12 od. 30", kosten:2.27, wv:4.05, wvM:78.4, gastro:4.40, gastroM:93.8, retail:7.70, retailM:239.2, gourmet:4.05, gourmetM:78.4},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"FLAM001", name:"Olio Flaminio aromatizzato al limone", sub:"", menge:"250 ml", gebinde:"—", kosten:4.90, wv:10.65, wvM:117.3, gastro:11.30, gastroM:130.6, retail:19.80, retailM:304.1, gourmet:10.65, gourmetM:117.3},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"339001", name:"Natives Olivenöl extra mit weissem Trüffelgeschmack", sub:"", menge:"100 ml", gebinde:"6 od. 16", kosten:3.31, wv:5.9, wvM:78.2, gastro:6.50, gastroM:96.4, retail:11.40, retailM:244.4, gourmet:5.9, gourmetM:78.2},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"339101", name:"Natives Olivenöl extra mit weissem Trüffelgeschmack (Spray)", sub:"", menge:"100 ml", gebinde:"6 od. 16", kosten:3.31, wv:5.9, wvM:78.2, gastro:6.50, gastroM:96.4, retail:11.40, retailM:244.4, gourmet:5.9, gourmetM:78.2},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"338001", name:"Natives Olivenöl extra mit weissem Trüffelgeschmack", sub:"", menge:"250 ml", gebinde:"6 od. 16", kosten:3.96, wv:10.05, wvM:153.8, gastro:12.55, gastroM:216.9, retail:22.00, retailM:455.6, gourmet:10.05, gourmetM:153.8},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"344442", name:"Natives Olivenöl extra mit schwarzem Trüffelgeschmack", sub:"", menge:"65 ml", gebinde:"12 od. 30", kosten:2.27, wv:4.05, wvM:78.4, gastro:4.40, gastroM:93.8, retail:7.70, retailM:239.2, gourmet:4.05, gourmetM:78.4},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"339002", name:"Natives Olivenöl extra mit schwarzem Trüffelgeschmack", sub:"", menge:"100 ml", gebinde:"6 od. 16", kosten:3.56, wv:6.35, wvM:78.4, gastro:6.95, gastroM:95.2, retail:12.20, retailM:242.7, gourmet:6.35, gourmetM:78.4},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"338002", name:"Natives Olivenöl extra mit schwarzem Trüffelgeschmack", sub:"", menge:"250 ml", gebinde:"6 od. 16", kosten:3.96, wv:10.05, wvM:153.8, gastro:12.55, gastroM:216.9, retail:22.00, retailM:455.6, gourmet:10.05, gourmetM:153.8},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"408022", name:"Creme mit Aceto Balsamico di Modena g.g.A.", sub:"weisser Trüffelgeschmack", menge:"250 ml", gebinde:"6", kosten:3.50, wv:6.2, wvM:77.1, gastro:5.95, gastroM:70.0, retail:10.45, retailM:198.6, gourmet:6.2, gourmetM:77.1},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"406020", name:"Salz mit Trüffel", sub:"", menge:"50 g", gebinde:"6", kosten:1.91, wv:3.4, wvM:78.0, gastro:3.25, gastroM:70.2, retail:5.70, retailM:198.4, gourmet:3.4, gourmetM:78.0},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"406040", name:"Sizilianisches Meersalz mit Trüffel", sub:"mit Mühle", menge:"100 g", gebinde:"20", kosten:3.12, wv:5.55, wvM:77.9, gastro:5.35, gastroM:71.5, retail:9.40, retailM:201.3, gourmet:5.55, gourmetM:77.9},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"406030", name:"Himalaya-Rosasalz mit Trüffel", sub:"mit Mühle", menge:"100 g", gebinde:"20", kosten:3.31, wv:5.9, wvM:78.2, gastro:5.65, gastroM:70.7, retail:9.90, retailM:199.1, gourmet:5.9, gourmetM:78.2},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"346111", name:"Trüffelpulver", sub:"", menge:"50 g", gebinde:"20", kosten:3.70, wv:6.6, wvM:78.4, gastro:6.30, gastroM:70.3, retail:11.05, retailM:198.6, gourmet:6.6, gourmetM:78.4},
+{cat:"Acqualagna — Öle, Salze & Gewürze", art:"346110", name:"Trüffel- und Steinpilzpulver", sub:"", menge:"50 g", gebinde:"20", kosten:3.70, wv:6.6, wvM:78.4, gastro:6.30, gastroM:70.3, retail:11.05, retailM:198.6, gourmet:6.6, gourmetM:78.4},
 
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344003", name:"Trüffelsauce 5%", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:2.22, wv:6.05, wvM:172.5, gastro:3.80, gastroM:71.2, retail:6.65, retailM:199.5},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"343001", name:"Trüffelsauce 5%", sub:"", menge:"500 g", gebinde:"6 od. 12", kosten:7.11, wv:29.06, wvM:308.7, gastro:12.10, gastroM:70.2, retail:21.20, retailM:198.2},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"343005", name:"Trüffelsauce 2%", sub:"", menge:"500 g", gebinde:"6 od. 12", kosten:5.39, wv:22.12, wvM:310.4, gastro:9.20, gastroM:70.7, retail:16.10, retailM:198.7},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"334008", name:"Sauce mit Rahm, Käse und Trüffel", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:2.98, wv:6.7, wvM:124.8, gastro:5.10, gastroM:71.1, retail:8.95, retailM:200.3},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"334002", name:"Sauce mit Rahm, Käse und Trüffel", sub:"", menge:"180 g", gebinde:"6 od. 12", kosten:4.47, wv:13.35, wvM:198.7, gastro:7.60, gastroM:70.0, retail:13.30, retailM:197.5},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"334006", name:"Sauce mit Rahm, Käse und Trüffel", sub:"", menge:"500 g", gebinde:"6 od. 12", kosten:9.42, wv:32.17, wvM:241.5, gastro:16.05, gastroM:70.4, retail:28.10, retailM:198.3},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344006", name:"Bianca-Sauce aus Acqualagna", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:2.22, wv:3.95, wvM:77.9, gastro:3.80, gastroM:71.2, retail:6.65, retailM:199.5},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344005", name:"Bianca-Sauce aus Acqualagna", sub:"", menge:"180 g", gebinde:"6 od. 12", kosten:3.73, wv:6.65, wvM:78.3, gastro:6.35, gastroM:70.2, retail:11.15, retailM:198.9},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344101", name:"Bianca-Sauce aus Acqualagna", sub:"", menge:"500 g", gebinde:"6 od. 12", kosten:7.11, wv:13.68, wvM:92.4, gastro:12.10, gastroM:70.2, retail:21.20, retailM:198.2},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344007", name:"Weisse Trüffelsauce", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:3.22, wv:6.45, wvM:100.3, gastro:5.50, gastroM:70.8, retail:9.65, retailM:199.7},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344008", name:"Weisse Trüffelsauce", sub:"", menge:"180 g", gebinde:"6 od. 12", kosten:5.00, wv:9.95, wvM:99.0, gastro:8.50, gastroM:70.0, retail:14.90, retailM:198.0},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"346104", name:"Grünes Pesto mit Trüffel", sub:"", menge:"85 g", gebinde:"6 od. 12", kosten:2.93, wv:5.2, wvM:77.5, gastro:5.00, gastroM:70.6, retail:8.75, retailM:198.6},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"346102", name:"Grünes Pesto mit Trüffel", sub:"", menge:"170 g", gebinde:"6 od. 12", kosten:4.51, wv:8.0, wvM:77.4, gastro:7.70, gastroM:70.7, retail:13.50, retailM:199.3},
-{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"346001", name:"Rote Sauce mit Trüffel", sub:"", menge:"180 g", gebinde:"6 od. 12", kosten:3.25, wv:5.8, wvM:78.5, gastro:5.55, gastroM:70.8, retail:9.75, retailM:200.0},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344003", name:"Trüffelsauce 5%", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:2.22, wv:6.05, wvM:172.5, gastro:3.80, gastroM:71.2, retail:6.65, retailM:199.5, gourmet:6.2, gourmetM:179.3},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"343001", name:"Trüffelsauce 5%", sub:"", menge:"500 g", gebinde:"6 od. 12", kosten:7.11, wv:29.06, wvM:308.7, gastro:12.10, gastroM:70.2, retail:21.20, retailM:198.2, gourmet:26.72, gourmetM:275.8},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"343005", name:"Trüffelsauce 2%", sub:"", menge:"500 g", gebinde:"6 od. 12", kosten:5.39, wv:22.12, wvM:310.4, gastro:9.20, gastroM:70.7, retail:16.10, retailM:198.7, gourmet:20.34, gourmetM:277.4},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"334008", name:"Sauce mit Rahm, Käse und Trüffel", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:2.98, wv:6.7, wvM:124.8, gastro:5.10, gastroM:71.1, retail:8.95, retailM:200.3, gourmet:6.85, gourmetM:129.9},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"334002", name:"Sauce mit Rahm, Käse und Trüffel", sub:"", menge:"180 g", gebinde:"6 od. 12", kosten:4.47, wv:13.35, wvM:198.7, gastro:7.60, gastroM:70.0, retail:13.30, retailM:197.5, gourmet:13.6, gourmetM:204.3},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"334006", name:"Sauce mit Rahm, Käse und Trüffel", sub:"", menge:"500 g", gebinde:"6 od. 12", kosten:9.42, wv:32.17, wvM:241.5, gastro:16.05, gastroM:70.4, retail:28.10, retailM:198.3, gourmet:29.59, gourmetM:214.1},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344006", name:"Bianca-Sauce aus Acqualagna", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:2.22, wv:3.95, wvM:77.9, gastro:3.80, gastroM:71.2, retail:6.65, retailM:199.5, gourmet:3.93, gourmetM:77.0},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344005", name:"Bianca-Sauce aus Acqualagna", sub:"", menge:"180 g", gebinde:"6 od. 12", kosten:3.73, wv:6.65, wvM:78.3, gastro:6.35, gastroM:70.2, retail:11.15, retailM:198.9, gourmet:6.6, gourmetM:76.9},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344101", name:"Bianca-Sauce aus Acqualagna", sub:"", menge:"500 g", gebinde:"6 od. 12", kosten:7.11, wv:13.68, wvM:92.4, gastro:12.10, gastroM:70.2, retail:21.20, retailM:198.2, gourmet:12.58, gourmetM:76.9},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344007", name:"Weisse Trüffelsauce", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:3.22, wv:6.45, wvM:100.3, gastro:5.50, gastroM:70.8, retail:9.65, retailM:199.7, gourmet:9.55, gourmetM:196.6},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"344008", name:"Weisse Trüffelsauce", sub:"", menge:"180 g", gebinde:"6 od. 12", kosten:5.00, wv:9.95, wvM:99.0, gastro:8.50, gastroM:70.0, retail:14.90, retailM:198.0, gourmet:19.05, gourmetM:281.0},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"346104", name:"Grünes Pesto mit Trüffel", sub:"", menge:"85 g", gebinde:"6 od. 12", kosten:2.93, wv:5.2, wvM:77.5, gastro:5.00, gastroM:70.6, retail:8.75, retailM:198.6, gourmet:6.45, gourmetM:120.1},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"346102", name:"Grünes Pesto mit Trüffel", sub:"", menge:"170 g", gebinde:"6 od. 12", kosten:4.51, wv:8.0, wvM:77.4, gastro:7.70, gastroM:70.7, retail:13.50, retailM:199.3, gourmet:12.85, gourmetM:184.9},
+{cat:"Acqualagna — Saucen & Sugo al Tartufo", art:"346001", name:"Rote Sauce mit Trüffel", sub:"", menge:"180 g", gebinde:"6 od. 12", kosten:3.25, wv:5.8, wvM:78.5, gastro:5.55, gastroM:70.8, retail:9.75, retailM:200.0, gourmet:5.75, gourmetM:76.9},
 
-{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"333007", name:"Getrocknete Sommertrüffel mit Mühle", sub:"", menge:"10 g", gebinde:"20", kosten:7.26, wv:12.9, wvM:77.7, gastro:12.35, gastroM:70.1, retail:21.65, retailM:198.2},
-{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"316002", name:"Geschnittene Sommertrüffel", sub:"", menge:"50 g", gebinde:"6", kosten:5.48, wv:9.7, wvM:77.0, gastro:9.35, gastroM:70.6, retail:16.40, retailM:199.3},
-{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"316001", name:"Geschnittene Sommertrüffel", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:9.95, wv:17.65, wvM:77.4, gastro:16.95, gastroM:70.4, retail:29.70, retailM:198.5},
-{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"319001", name:"Sommertrüffel-Creme", sub:"", menge:"50 g", gebinde:"6", kosten:6.21, wv:11.0, wvM:77.1, gastro:10.60, gastroM:70.7, retail:18.55, retailM:198.7},
-{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"318001", name:"Sommertrüffel-Creme", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:10.32, wv:18.3, wvM:77.3, gastro:17.55, gastroM:70.1, retail:30.75, retailM:198.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"333007", name:"Getrocknete Sommertrüffel mit Mühle", sub:"", menge:"10 g", gebinde:"20", kosten:7.26, wv:12.9, wvM:77.7, gastro:12.35, gastroM:70.1, retail:21.65, retailM:198.2, gourmet:12.9, gourmetM:77.7},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"316002", name:"Geschnittene Sommertrüffel", sub:"", menge:"50 g", gebinde:"6", kosten:5.48, wv:9.7, wvM:77.0, gastro:9.35, gastroM:70.6, retail:16.40, retailM:199.3, gourmet:9.7, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"316001", name:"Geschnittene Sommertrüffel", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:9.95, wv:17.65, wvM:77.4, gastro:16.95, gastroM:70.4, retail:29.70, retailM:198.5, gourmet:17.65, gourmetM:77.4},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"319001", name:"Sommertrüffel-Creme", sub:"", menge:"50 g", gebinde:"6", kosten:6.21, wv:11.0, wvM:77.1, gastro:10.60, gastroM:70.7, retail:18.55, retailM:198.7, gourmet:10.99, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"318001", name:"Sommertrüffel-Creme", sub:"", menge:"90 g", gebinde:"6 od. 12", kosten:10.32, wv:18.3, wvM:77.3, gastro:17.55, gastroM:70.1, retail:30.75, retailM:198.0, gourmet:18.27, gourmetM:77.0},
 
-{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"314001", name:"Ganze Sommertrüffel im Glas", sub:"25 g (18 g Abtropfgewicht)", menge:"25 g", gebinde:"6", kosten:4.02, wv:7.15, wvM:77.9, gastro:6.85, gastroM:70.4, retail:12.00, retailM:198.5},
-{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"313001", name:"Ganze Sommertrüffel im Glas", sub:"64 g (50 g Abtropfgewicht)", menge:"64 g", gebinde:"6 od. 12", kosten:8.46, wv:15.0, wvM:77.3, gastro:18.10, gastroM:113.9, retail:31.70, retailM:274.7},
-{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"312001", name:"Ganze Sommertrüffel im Glas", sub:"128 g (100 g Abtropfgewicht)", menge:"128 g", gebinde:"6 od. 12", kosten:15.46, wv:28.90, wvM:86.9, gastro:36.15, gastroM:133.8, retail:63.30, retailM:309.4},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"314001", name:"Ganze Sommertrüffel im Glas", sub:"25 g (18 g Abtropfgewicht)", menge:"25 g", gebinde:"6", kosten:4.02, wv:7.15, wvM:77.9, gastro:6.85, gastroM:70.4, retail:12.00, retailM:198.5, gourmet:7.15, gourmetM:77.9},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"313001", name:"Ganze Sommertrüffel im Glas", sub:"64 g (50 g Abtropfgewicht)", menge:"64 g", gebinde:"6 od. 12", kosten:8.46, wv:15.0, wvM:77.3, gastro:18.10, gastroM:113.9, retail:31.70, retailM:274.7, gourmet:15.0, gourmetM:77.3},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"312001", name:"Ganze Sommertrüffel im Glas", sub:"128 g (100 g Abtropfgewicht)", menge:"128 g", gebinde:"6 od. 12", kosten:15.46, wv:28.90, wvM:86.9, gastro:36.15, gastroM:133.8, retail:63.30, retailM:309.4, gourmet:27.4, gourmetM:77.2},
 
-{cat:"Acqualagna — Pasta & Reis", art:"406012", name:"Reis mit Trüffel", sub:"", menge:"220 g", gebinde:"6", kosten:3.61, wv:6.4, wvM:77.3, gastro:6.15, gastroM:70.4, retail:10.80, retailM:199.2},
-{cat:"Acqualagna — Pasta & Reis", art:"406015", name:"Reis mit Trüffel", sub:"", menge:"500 g", gebinde:"12 od. 24", kosten:5.94, wv:10.55, wvM:77.6, gastro:10.10, gastroM:70.0, retail:17.70, retailM:198.0},
-{cat:"Acqualagna — Pasta & Reis", art:"406010", name:"Tagliatelle mit Trüffel", sub:"", menge:"250 g", gebinde:"15", kosten:2.61, wv:4.65, wvM:78.2, gastro:4.45, gastroM:70.5, retail:7.80, retailM:198.9},
+{cat:"Acqualagna — Pasta & Reis", art:"406012", name:"Reis mit Trüffel", sub:"", menge:"220 g", gebinde:"6", kosten:3.61, wv:6.4, wvM:77.3, gastro:6.15, gastroM:70.4, retail:10.80, retailM:199.2, gourmet:6.4, gourmetM:77.3},
+{cat:"Acqualagna — Pasta & Reis", art:"406015", name:"Reis mit Trüffel", sub:"", menge:"500 g", gebinde:"12 od. 24", kosten:5.94, wv:10.55, wvM:77.6, gastro:10.10, gastroM:70.0, retail:17.70, retailM:198.0, gourmet:10.55, gourmetM:77.6},
+{cat:"Acqualagna — Pasta & Reis", art:"406010", name:"Tagliatelle mit Trüffel", sub:"", menge:"250 g", gebinde:"15", kosten:2.61, wv:4.65, wvM:78.2, gastro:4.45, gastroM:70.5, retail:7.80, retailM:198.9, gourmet:4.65, gourmetM:78.2},
 
-{cat:"Trüffel-Spezialitäten", art:"349002", name:"Trüffelsalami", sub:"Preis pro kg", menge:"250 g", gebinde:"pro Stück", kosten:17.24, wv:30.55, wvM:77.2, gastro:32.80, gastroM:90.3, retail:57.40, retailM:232.9},
-{cat:"Trüffel-Spezialitäten", art:"349003", name:"Trüffel-Mortadella", sub:"Preis pro kg", menge:"300 g", gebinde:"pro Stück", kosten:17.24, wv:30.55, wvM:77.2, gastro:32.80, gastroM:90.3, retail:57.40, retailM:232.9},
-{cat:"Trüffel-Spezialitäten", art:"100902", name:"Gereifter Käse mit Trüffel", sub:"Preis pro kg", menge:"400 g", gebinde:"pro Stück", kosten:25.43, wv:45.05, wvM:77.2, gastro:48.35, gastroM:90.1, retail:84.65, retailM:232.9},
-{cat:"Trüffel-Spezialitäten", art:"100901", name:"Gemischter Käse mit Trüffel", sub:"Preis pro kg", menge:"200 g", gebinde:"pro Stück", kosten:18.78, wv:33.25, wvM:77.1, gastro:35.70, gastroM:90.1, retail:62.50, retailM:232.8},
-{cat:"Trüffel-Spezialitäten", art:"701033", name:"Honig mit Trüffel", sub:"", menge:"120 g", gebinde:"6 od. 16", kosten:4.03, wv:7.15, wvM:77.4, gastro:7.70, gastroM:91.1, retail:13.50, retailM:235.0},
-{cat:"Trüffel-Spezialitäten", art:"351030", name:"Trüffelchips", sub:"", menge:"120 g", gebinde:"10", kosten:1.41, wv:2.55, wvM:80.9, gastro:2.70, gastroM:91.5, retail:4.75, retailM:236.9},
+{cat:"Trüffel-Spezialitäten", art:"349002", name:"Trüffelsalami", sub:"Preis pro kg", menge:"250 g", gebinde:"pro Stück", kosten:17.24, wv:30.55, wvM:77.2, gastro:32.80, gastroM:90.3, retail:57.40, retailM:232.9, gourmet:30.55, gourmetM:77.2},
+{cat:"Trüffel-Spezialitäten", art:"349003", name:"Trüffel-Mortadella", sub:"Preis pro kg", menge:"300 g", gebinde:"pro Stück", kosten:17.24, wv:30.55, wvM:77.2, gastro:32.80, gastroM:90.3, retail:57.40, retailM:232.9, gourmet:30.55, gourmetM:77.2},
+{cat:"Trüffel-Spezialitäten", art:"100902", name:"Gereifter Käse mit Trüffel", sub:"Preis pro kg", menge:"400 g", gebinde:"pro Stück", kosten:25.43, wv:45.05, wvM:77.2, gastro:48.35, gastroM:90.1, retail:84.65, retailM:232.9, gourmet:45.05, gourmetM:77.2},
+{cat:"Trüffel-Spezialitäten", art:"100901", name:"Gemischter Käse mit Trüffel", sub:"Preis pro kg", menge:"200 g", gebinde:"pro Stück", kosten:18.78, wv:33.25, wvM:77.1, gastro:35.70, gastroM:90.1, retail:62.50, retailM:232.8, gourmet:33.25, gourmetM:77.1},
+{cat:"Trüffel-Spezialitäten", art:"701033", name:"Honig mit Trüffel", sub:"", menge:"120 g", gebinde:"6 od. 16", kosten:4.03, wv:7.15, wvM:77.4, gastro:7.70, gastroM:91.1, retail:13.50, retailM:235.0, gourmet:7.15, gourmetM:77.4},
+{cat:"Trüffel-Spezialitäten", art:"351030", name:"Trüffelchips", sub:"", menge:"120 g", gebinde:"10", kosten:1.41, wv:2.55, wvM:80.9, gastro:2.70, gastroM:91.5, retail:4.75, retailM:236.9, gourmet:2.55, gourmetM:80.9},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"388001", name:"Weisse Trüffelcreme", sub:"76% Trüffel", menge:"25 g", gebinde:"6", kosten:15.46, wv:27.36, wvM:77.0, gastro:31.0, gastroM:100.5, retail:54.28, retailM:251.1, gourmet:27.36, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"307001", name:"Weisse Trüffelcreme", sub:"76% Trüffel", menge:"50 g", gebinde:"6", kosten:29.93, wv:52.98, wvM:77.0, gastro:60.03, gastroM:100.6, retail:105.11, retailM:251.2, gourmet:52.98, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"306001", name:"Weisse Trüffelcreme", sub:"76% Trüffel", menge:"90 g", gebinde:"6 od. 12", kosten:52.71, wv:93.3, wvM:77.0, gastro:105.71, gastroM:100.6, retail:185.11, retailM:251.2, gourmet:93.3, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"327001", name:"Schwarze Trüffelcreme", sub:"76% Trüffel", menge:"50 g", gebinde:"6", kosten:18.55, wv:32.83, wvM:77.0, gastro:37.2, gastroM:100.5, retail:65.13, retailM:251.1, gourmet:32.83, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"326001", name:"Schwarze Trüffelcreme", sub:"76% Trüffel", menge:"90 g", gebinde:"6 od. 12", kosten:31.16, wv:55.15, wvM:77.0, gastro:62.48, gastroM:100.5, retail:109.42, retailM:251.2, gourmet:55.15, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"325001", name:"Schwarze Trüffelcreme", sub:"76% Trüffel", menge:"180 g", gebinde:"6 od. 12", kosten:57.7, wv:102.13, wvM:77.0, gastro:115.71, gastroM:100.5, retail:202.63, retailM:251.2, gourmet:102.13, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"334001", name:"Bianchetto-Trüffelcreme", sub:"76% Trüffel", menge:"50 g", gebinde:"6", kosten:7.17, wv:12.69, wvM:77.0, gastro:14.38, gastroM:100.6, retail:25.18, retailM:251.2, gourmet:12.69, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"333001", name:"Bianchetto-Trüffelcreme", sub:"76% Trüffel", menge:"90 g", gebinde:"6 od. 12", kosten:11.83, wv:20.94, wvM:77.0, gastro:23.73, gastroM:100.6, retail:41.54, retailM:251.1, gourmet:20.94, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"332001", name:"Bianchetto-Trüffelcreme", sub:"76% Trüffel", menge:"180 g", gebinde:"6 od. 12", kosten:22.38, wv:39.61, wvM:77.0, gastro:44.88, gastroM:100.5, retail:78.59, retailM:251.2, gourmet:39.61, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"317001", name:"Sommertrüffel-Creme", sub:"76% Trüffel", menge:"180 g", gebinde:"6 od. 12", kosten:19.19, wv:33.97, wvM:77.0, gastro:38.49, gastroM:100.6, retail:67.4, retailM:251.2, gourmet:33.97, gourmetM:77.0},
+{cat:"Acqualagna — Ganze, geschnittene & gemahlene Trüffel", art:"317002", name:"Sommertrüffel-Creme", sub:"76% Trüffel", menge:"500 g", gebinde:"6 od. 12", kosten:50.72, wv:89.77, wvM:77.0, gastro:101.71, gastroM:100.5, retail:178.1, retailM:251.1, gourmet:89.77, gourmetM:77.0},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"303001", name:"Ganzer weisser Trüffel im Glas", sub:"100% Trüffel", menge:"50 g", gebinde:"6", kosten:22.52, wv:39.9, wvM:77.2, gastro:45.17, gastroM:100.6, retail:79.12, retailM:251.3, gourmet:39.9, gourmetM:77.2},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"302001", name:"Ganzer weisser Trüffel im Glas", sub:"100% Trüffel", menge:"90 g", gebinde:"6 od. 12", kosten:39.65, wv:70.2, wvM:77.0, gastro:87.89, gastroM:121.7, retail:153.88, retailM:288.1, gourmet:70.2, gourmetM:77.0},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"324001", name:"Ganzer schwarzer Trüffel im Glas", sub:"100% Trüffel (Tuber melanosporum)", menge:"32 g", gebinde:"6", kosten:13.02, wv:23.05, wvM:77.0, gastro:26.09, gastroM:100.4, retail:45.71, retailM:251.1, gourmet:23.05, gourmetM:77.0},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"323001", name:"Ganzer schwarzer Trüffel im Glas", sub:"100% Trüffel (Tuber melanosporum)", menge:"64 g", gebinde:"6 od. 12", kosten:24.79, wv:43.9, wvM:77.1, gastro:54.96, gastroM:121.7, retail:96.23, retailM:288.2, gourmet:43.9, gourmetM:77.1},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"322001", name:"Ganzer schwarzer Trüffel im Glas", sub:"100% Trüffel (Tuber melanosporum)", menge:"128 g", gebinde:"6 od. 12", kosten:48.36, wv:85.6, wvM:77.0, gastro:107.17, gastroM:121.6, retail:187.64, retailM:288.0, gourmet:85.6, gourmetM:77.0},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"330001", name:"Ganzer Bianchetto-Trüffel im Glas", sub:"100% Trüffel", menge:"50 g", gebinde:"6", kosten:5.83, wv:10.35, wvM:77.5, gastro:11.72, gastroM:101.0, retail:20.52, retailM:252.0, gourmet:10.35, gourmetM:77.5},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"329001", name:"Ganzer Bianchetto-Trüffel im Glas", sub:"100% Trüffel", menge:"90 g", gebinde:"6 od. 12", kosten:9.35, wv:16.55, wvM:77.0, gastro:20.72, gastroM:121.6, retail:36.28, retailM:288.0, gourmet:16.55, gourmetM:77.0},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"328001", name:"Ganzer Bianchetto-Trüffel im Glas", sub:"100% Trüffel", menge:"180 g", gebinde:"6 od. 12", kosten:17.26, wv:30.6, wvM:77.3, gastro:38.31, gastroM:122.0, retail:67.08, retailM:288.6, gourmet:30.6, gourmetM:77.3},
+{cat:"Acqualagna — Ganze Sommertrüffel im Glas", art:"311001", name:"Ganze Sommertrüffel im Glas", sub:"320 g (250 g Abtropfgewicht)", menge:"320 g", gebinde:"6 od. 12", kosten:36.27, wv:64.2, wvM:77.0, gastro:80.38, gastroM:121.6, retail:140.73, retailM:288.0, gourmet:64.2, gourmetM:77.0},
 ];
 
 const CATS = [...new Set(DATA.map(d=>d.cat))];
@@ -727,6 +754,7 @@ const INTERN_CODE = "Tartufi4all";
 
 const MODE_LABELS = {
   wv: "Wiederverkäufer",
+  gourmet: "Gourmet / Delikatessen",
   gastro: "Gastro",
   retail: "Privat",
   intern: "Intern — Kosten & Margen"
@@ -977,6 +1005,17 @@ const SEGMENT_TEXT = {
     resaleMarkup: 1.45,
     resaleMarginPct: "45%",
     intro: (ort) => `Biagetti Tartufi Schweiz GmbH importiert und vertreibt Premium-Trüffelprodukte aus den Trüffelregionen Marken (Acqualagna), Umbrien, Piemont, Toskana und Molise. Wir beliefern Feinkostläden, Delikatessengeschäfte und die Gastronomie in der Schweiz mit einem breiten Sortiment an Trüffelsaucen und reinen Trüffelcremes. Gerne unterbreiten wir dir als Wiederverkäufer in ${'{ort}'} nachfolgend unser Angebot für den Wiederverkauf.`.replace('${\'{ort}\'}', ort),
+    noteBox: true,
+    closing: "Gerne stellen wir dir auf Anfrage Produktproben sowie ein Sortiment nach Mass zusammen. Auch individuelle Mischungen, Zusammenstellungen oder Private Labeling sind nach Absprache umsetzbar. Individuelle Konditionen zu Lieferzeiten und Zahlungsziel besprechen wir gerne persönlich. Wir freuen uns auf deine Anfrage."
+  },
+  gourmet: {
+    label: "Gourmet / Delikatessen",
+    coverLabel: "ANGEBOT FÜR WIEDERVERKÄUFER",
+    priceColLabel: "Dein Einkaufspreis",
+    resaleLabel: "Empf. Verkaufspreis",
+    resaleMarkup: 1.45,
+    resaleMarginPct: "45%",
+    intro: (ort) => `Biagetti Tartufi Schweiz GmbH importiert und vertreibt Premium-Trüffelprodukte aus den Trüffelregionen Marken (Acqualagna), Umbrien, Piemont, Toskana und Molise. Wir beliefern Feinkostläden, Delikatessengeschäfte und die Gastronomie in der Schweiz mit einem breiten Sortiment an Trüffelsaucen und reinen Trüffelcremes. Gerne unterbreiten wir dir als Delikatessengeschäft in ${ort} nachfolgend unser Angebot für den Wiederverkauf.`,
     noteBox: true,
     closing: "Gerne stellen wir dir auf Anfrage Produktproben sowie ein Sortiment nach Mass zusammen. Auch individuelle Mischungen, Zusammenstellungen oder Private Labeling sind nach Absprache umsetzbar. Individuelle Konditionen zu Lieferzeiten und Zahlungsziel besprechen wir gerne persönlich. Wir freuen uns auf deine Anfrage."
   },
@@ -1255,13 +1294,13 @@ function buildPdf(firma, name, strasse, plz, ort){
     y += 20;
 
     let head, body, columnStyles;
-    if(mode === 'wv'){
+    if(mode === 'wv' || mode === 'gourmet'){
       head = [["Produkt","Menge","Dein Einkaufspreis","Empf. Verkaufspreis","Marge"]];
       body = items.map(d => [
         { content: d.name + (d.sub ? `\n${d.sub}` : ''), styles:{fontStyle:'bold'} },
         d.menge,
-        `CHF ${chf(d.wv)}`,
-        `CHF ${chf(d.wv * seg.resaleMarkup)}`,
+        `CHF ${chf(d[mode])}`,
+        `CHF ${chf(d[mode] * seg.resaleMarkup)}`,
         `+${seg.resaleMarginPct}`
       ]);
       columnStyles = { 0:{}, 1:{cellWidth:50}, 2:{cellWidth:85,halign:'right'}, 3:{cellWidth:90,halign:'right',fontStyle:'bold'}, 4:{cellWidth:50,halign:'right'} };
