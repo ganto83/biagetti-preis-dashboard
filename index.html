@@ -42,7 +42,7 @@
     display:flex;
     align-items:center;
     gap:16px;
-    padding-bottom:20px;
+    padding:12px 0 26px;
     margin-bottom:24px;
     border-bottom:1px solid var(--border);
     flex-wrap:wrap;
@@ -98,9 +98,13 @@
 
   /* ===== LANDING / MODE SELECTOR ===== */
   #landing{
-    max-width:640px;
-    margin:40px auto;
+    max-width:520px;
+    margin:0 auto;
     text-align:center;
+    min-height:calc(100vh - 220px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
   }
   #landing .lead-title{
     font-family:'Fraunces',serif;
@@ -111,19 +115,31 @@
   }
   .mode-cards{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:12px;
+    grid-template-columns:1fr;
+    gap:14px;
     margin-bottom:28px;
   }
   .mode-card{
     background:var(--panel);
     border:1px solid var(--border);
-    border-radius:6px;
-    padding:22px 14px;
+    border-radius:8px;
+    padding:26px 28px;
     cursor:pointer;
     transition:all .15s ease;
-    text-align:center;
+    text-align:left;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
   }
+  .mode-card .label-group{flex:1;}
+  .mode-card .arrow-hint{
+    color:var(--gold-dim);
+    font-size:20px;
+    flex-shrink:0;
+    transition:transform .15s ease;
+  }
+  .mode-card:hover .arrow-hint{transform:translateX(4px);color:var(--gold);}
   .mode-card:hover{
     border-color:var(--gold-dim);
     background:var(--panel-2);
@@ -138,6 +154,18 @@
     font-size:11px;
     color:var(--muted-2);
     line-height:1.4;
+  }
+  .landing-footer-logo{
+    margin-top:56px;
+    opacity:0.35;
+    display:flex;
+    justify-content:center;
+  }
+  .landing-footer-logo img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    border-radius:50%;
   }
   .intern-link{
     font-size:12px;
@@ -449,7 +477,9 @@
   /* mobile cards */
   @media (max-width:720px){
     .wrap{padding:24px 14px 60px;}
-    .mode-cards{grid-template-columns:1fr;}
+    #landing{min-height:auto;margin-top:20px;}
+    .mode-card{padding:20px 18px;}
+    .landing-footer-logo{margin-top:36px;}
     table thead{display:none;}
     table, tbody, tr, td{display:block;width:100%;}
     .cat-row{margin-top:6px;}
@@ -504,19 +534,29 @@
     <p class="lead-title">Für welchen Kunden ist diese Preisliste?</p>
     <div class="mode-cards">
       <div class="mode-card" data-mode="wv">
-        <div class="label">Wiederverkäufer</div>
-        <div class="desc">Einkaufspreise für Handel &amp; Delikatessengeschäfte</div>
+        <div class="label-group">
+          <div class="label">Wiederverkäufer</div>
+          <div class="desc">Einkaufspreise für Handel &amp; Delikatessengeschäfte</div>
+        </div>
+        <div class="arrow-hint">→</div>
       </div>
       <div class="mode-card" data-mode="gastro">
-        <div class="label">Gastro</div>
-        <div class="desc">UVP für Restaurants &amp; Gastronomie</div>
+        <div class="label-group">
+          <div class="label">Gastro</div>
+          <div class="desc">UVP für Restaurants &amp; Gastronomie</div>
+        </div>
+        <div class="arrow-hint">→</div>
       </div>
       <div class="mode-card" data-mode="retail">
-        <div class="label">Privat</div>
-        <div class="desc">UVP für Endkunden &amp; Retail</div>
+        <div class="label-group">
+          <div class="label">Privat</div>
+          <div class="desc">UVP für Endkunden &amp; Retail</div>
+        </div>
+        <div class="arrow-hint">→</div>
       </div>
     </div>
     <button class="intern-link" id="internLinkBtn">Interner Zugang (Kosten &amp; Margen)</button>
+    <div id="landingFooterLogo" class="landing-footer-logo"></div>
   </div>
 
   <!-- CODE MODAL -->
@@ -754,6 +794,16 @@ function tryInternCode(){
     selectMode('intern');
   } else {
     document.getElementById('codeError').style.display = 'block';
+  }
+}
+
+const footerLogoSlot = document.getElementById('landingFooterLogo');
+if(footerLogoSlot){
+  const headerLogo = document.querySelector('.brand-header img');
+  if(headerLogo){
+    const clone = headerLogo.cloneNode(true);
+    clone.removeAttribute('id');
+    footerLogoSlot.appendChild(clone);
   }
 }
 
